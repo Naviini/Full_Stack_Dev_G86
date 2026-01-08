@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#667eea" />
+    <meta
+      name="description"
+      content="Project Management System - Plan, manage, and track projects"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * {
+        @apply antialiased;
+      }
+      html {
+        @apply scroll-smooth;
+      }
+      .btn-primary {
+        @apply bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed;
+      }
+      .btn-secondary {
+        @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-all duration-300;
+      }
+      .btn-logout {
+        @apply bg-white/20 hover:bg-white/30 text-white border border-white font-medium py-2 px-4 rounded-lg transition-all duration-300;
+      }
+      .error-message {
+        @apply bg-red-50 text-red-700 p-4 rounded-lg mb-4 border-l-4 border-red-700;
+      }
+      .loading {
+        @apply text-center py-8 text-lg text-gray-600;
+      }
+    </style>
+    <title>Project Management System</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,431 @@
+.progress-chart {
+  width: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2d3748;
+}
+
+.progress-chart.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  font-size: 18px;
+  color: #666;
+  font-weight: 500;
+}
+
+.progress-chart.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  font-size: 18px;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* Progress Sections */
+.progress-section {
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  border-left: 4px solid #3b82f6;
+}
+
+.progress-section.overall-section {
+  border-left: 4px solid #10b981;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-section-content {
+  margin-top: 20px;
+}
+
+/* Progress Grid */
+.progress-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .progress-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.progress-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  padding: 30px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.big-number {
+  font-size: 64px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  line-height: 1;
+}
+
+.big-label {
+  font-size: 18px;
+  margin: 0 0 15px 0;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Timeline Info */
+.timeline-info {
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-weight: 500;
+}
+
+.timeline-stat:last-child {
+  border-bottom: none;
+}
+
+.timeline-label {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.timeline-value {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Progress Item */
+.progress-item {
+  margin-bottom: 24px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 15px;
+}
+
+.progress-value {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Status Grid */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.status-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  border-top: 4px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.status-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.status-card.todo {
+  border-top-color: #eab308;
+}
+
+.status-card.inprogress {
+  border-top-color: #3b82f6;
+}
+
+.status-card.review {
+  border-top-color: #a855f7;
+}
+
+.status-card.completed {
+  border-top-color: #10b981;
+}
+
+.status-number {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: #1f2937;
+}
+
+.status-name {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-percent {
+  font-size: 18px;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #cbd5e1;
+}
+
+.metric-card.variance-over {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  border-color: #fca5a5;
+}
+
+.metric-card.variance-under {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-color: #7dd3fc;
+}
+
+.metric-label {
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.metric-card.variance-over .metric-value {
+  color: #dc2626;
+}
+
+.metric-card.variance-under .metric-value {
+  color: #0369a1;
+}
+
+/* Risk Grid */
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.risk-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  border: 2px solid;
+  transition: transform 0.2s ease;
+}
+
+.risk-card:hover {
+  transform: translateY(-4px);
+}
+
+.risk-card.risk-high {
+  border-color: #ef4444;
+  background: #fef2f2;
+}
+
+.risk-card.risk-medium {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.risk-card.risk-low {
+  border-color: #10b981;
+  background: #f0fdf4;
+}
+
+.risk-card.risk-info {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.risk-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.risk-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.risk-count {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+/* Alert */
+.alert-warning {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-left: 4px solid #f59e0b;
+  padding: 16px;
+  border-radius: 6px;
+  color: #92400e;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+/* Summary */
+.progress-summary {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-left: 4px solid #0284c7;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.summary-text {
+  margin: 10px 0;
+  color: #0c4a6e;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.summary-text strong {
+  color: #0369a1;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .progress-chart {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .big-number {
+    font-size: 48px;
+  }
+
+  .progress-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .status-grid,
+  .metrics-grid,
+  .risk-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-chart {
+    padding: 16px;
+  }
+
+  .big-number {
+    font-size: 36px;
+  }
+
+  .status-grid,
+  .metrics-grid,
+  .risk-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

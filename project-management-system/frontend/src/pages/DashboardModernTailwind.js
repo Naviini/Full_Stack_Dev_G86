@@ -170,6 +170,7 @@ export default function Dashboard() {
                 else if (item.id === 'search') navigate('/search');
                 else if (item.id === 'documents') navigate('/documents');
                 else if (item.id === 'team') navigate('/users');
+                else if (item.id === 'chat') navigate('/chat');
                 else if (item.id === 'progress') navigate('/dashboard');
                 else if (item.id === 'settings') navigate('/settings');
               }}

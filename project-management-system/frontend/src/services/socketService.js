@@ -94,6 +94,45 @@ const socketService = {
   },
 
   /**
+   * Send chat message with optional attachments
+   */
+  sendChatMessage(projectId, text, attachments = []) {
+    if (socket) {
+      socket.emit('chat:send', { projectId, text, attachments });
+    }
+  },
+
+  /**
+   * Typing indicator
+   */
+  emitTyping(projectId, isTyping) {
+    if (socket) {
+      socket.emit('chat:typing', { projectId, isTyping });
+    }
+  },
+
+  /**
+   * Emit read receipts for messages
+   */
+  emitRead(projectId, messageIds) {
+    if (socket) {
+      socket.emit('chat:read', { projectId, messageIds });
+    }
+  },
+
+  emitChatUpdate(projectId, messageId, text) {
+    if (socket) {
+      socket.emit('chat:update', { projectId, messageId, text });
+    }
+  },
+
+  emitChatDelete(projectId, messageId) {
+    if (socket) {
+      socket.emit('chat:delete', { projectId, messageId });
+    }
+  },
+
+  /**
    * Notify when project status changes
    * @param {string} projectId - Project ID
    * @param {string} status - New project status
@@ -124,6 +163,36 @@ const socketService = {
   onNewMessage(callback) {
     if (socket) {
       socket.on('new-message', callback);
+    }
+  },
+
+  onChatMessage(callback) {
+    if (socket) {
+      socket.on('chat:message', callback);
+    }
+  },
+
+  onChatUpdated(callback) {
+    if (socket) {
+      socket.on('chat:updated', callback);
+    }
+  },
+
+  onChatDeleted(callback) {
+    if (socket) {
+      socket.on('chat:deleted', callback);
+    }
+  },
+
+  onTyping(callback) {
+    if (socket) {
+      socket.on('chat:typing', callback);
+    }
+  },
+
+  onRead(callback) {
+    if (socket) {
+      socket.on('chat:read', callback);
     }
   },
 

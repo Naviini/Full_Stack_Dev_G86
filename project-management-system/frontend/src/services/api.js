@@ -93,4 +93,12 @@ export const collaborationAPI = {
   pinItem: (itemId) => api.patch(`/collaboration/${itemId}/pin`),
 };
 
+export const chatAPI = {
+  getMessages: (projectId, limit = 50) => api.get(`/chat/project/${projectId}/messages?limit=${limit}`),
+  sendMessage: (projectId, data) => api.post(`/chat/project/${projectId}/messages`, data),
+  markRead: (projectId, messageIds) => api.post(`/chat/project/${projectId}/read`, { messageIds }),
+  updateMessage: (projectId, messageId, data) => api.patch(`/chat/project/${projectId}/messages/${messageId}`, data),
+  deleteMessage: (projectId, messageId) => api.delete(`/chat/project/${projectId}/messages/${messageId}`),
+};
+
 export default api;

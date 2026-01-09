@@ -21,6 +21,7 @@ import TimeLog from './pages/TimeLog';
 import Resources from './pages/Resources';
 import Templates from './pages/Templates';
 import InvitationAcceptance from './pages/InvitationAcceptance';
+import Chat from './pages/Chat';
 
 // Google OAuth Client ID - Replace with your actual Google Client ID
 const GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID || 'YOUR_GOOGLE_CLIENT_ID_HERE';
@@ -49,6 +50,8 @@ function App() {
             <Route path="/tasks" element={<ProtectedRoute><Tasks /></ProtectedRoute>} />
             <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
             <Route path="/documents" element={<ProtectedRoute><Documents /></ProtectedRoute>} />
+            <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
+            <Route path="/projects/:projectId/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
             <Route path="/time-log" element={<ProtectedRoute><TimeLog /></ProtectedRoute>} />
             <Route path="/resources" element={<ProtectedRoute><Resources /></ProtectedRoute>} />

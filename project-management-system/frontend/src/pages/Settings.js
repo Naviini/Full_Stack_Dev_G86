@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { usersAPI } from '../services/api';
 import { DarkModeContext } from '../context/DarkModeContext';
+import { AuthContext } from '../context/AuthContext';
 
 export default function Settings() {
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -96,6 +100,12 @@ export default function Settings() {
     }
   };
 
+  const handleLogout = () => {
+    logout();
+    localStorage.removeItem('user');
+    navigate('/login');
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -111,9 +121,19 @@ export default function Settings() {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-950' : 'bg-gray-50'}`}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>Settings</h1>
-          <p className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>Manage your profile and preferences</p>
+        <div className="mb-8 flex items-start justify-between gap-4 flex-wrap">
+          <div>
+            <h1 className={`text-4xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>Settings</h1>
+            <p className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>Manage your profile and preferences</p>
+          </div>
+          <button
+            onClick={handleLogout}
+            className={`inline-flex items-center gap-2 px-4 py-2 font-semibold rounded-lg shadow transition-colors ${
+              isDarkMode ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-red-600 text-white hover:bg-red-700'
+            }`}
+          >
+            🚪 Logout
+          </button>
         </div>
 
         {/* Alerts */}
